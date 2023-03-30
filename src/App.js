@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Header from "./Header.jsx";
+import Header from "./components/Header.jsx";
 import pic1 from "./images/cactus.jpeg";
 import pic2 from "./images/gerbera.jpeg";
 import pic3 from "./images/golden-pathos.jpeg";
@@ -10,10 +10,9 @@ import pic6 from "./images/snake-plant.jpeg";
 import pic7 from "./images/succulent.jpeg";
 import pic8 from "./images/viola.jpeg";
 import pic9 from "./images/yucca.jpeg";
-import Menu from "./Menu.jsx";
-import Plants from "./Plants";
-import Reset from "./Reset";
-import Start from "./Start";
+import Menu from "./components/Menu.jsx";
+import Plants from "./components/Plants";
+import Start from "./components/Start";
 
 class App extends React.Component {
   state = {
@@ -80,7 +79,7 @@ class App extends React.Component {
 
   plusOne = () => {
     console.log("invoked");
-    if (this.state.count < 6) {
+    if (this.state.count < 9) {
       this.setState((prevState) => {
         return { count: prevState.count + 1 };
       });
@@ -89,7 +88,7 @@ class App extends React.Component {
   };
 
   plusTwo = () => {
-    if (this.state.count < 6) {
+    if (this.state.count < 9) {
       this.setState((prevState) => {
         return { count: prevState.count + 2 };
       });
@@ -98,7 +97,7 @@ class App extends React.Component {
   };
 
   plusThree = () => {
-    if (this.state.count < 6) {
+    if (this.state.count < 9) {
       this.setState((prevState) => {
         return { count: prevState.count + 3 };
       });
@@ -112,7 +111,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='content'>
         <Header />
         <Plants
           key={this.state.plants.id}
@@ -120,13 +119,15 @@ class App extends React.Component {
           count={this.state.count}
           plantTotal={this.state.plants.total}
         />
-        <Menu
+        {this.state.count === 0 ? 
+         <Start plusOne={this.plusOne} count={this.state.count} /> :
+         <Menu
           plusOne={this.plusOne}
           plusTwo={this.plusTwo}
           plusThree={this.plusThree}
-        />
-        <Reset reset={this.reset} />
-        <Start plusOne={this.plusOne} />
+          reset={this.reset}
+        /> 
+      }
       </div>
     );
   }
