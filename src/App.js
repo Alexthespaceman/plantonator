@@ -81,21 +81,18 @@ class App extends React.Component {
       this.setState((prevState) => {
         return { count: prevState.count + 1 };
       });
-    console.log(this.state.count);
   };
 
   plusTwo = () => {
       this.setState((prevState) => {
         return { count: prevState.count + 2 };
       });
-    console.log(this.state.count);
   };
 
   plusThree = () => {
       this.setState((prevState) => {
         return { count: prevState.count + 3 };
       });
-    console.log(this.state.count);
   };
 
   reset = () => {
