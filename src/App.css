@@ -29,7 +29,7 @@ h1 {
     text-align: center;
 }
 
-.content {
+.main-content {
   flex-direction: column;
   display: flex;
 }
@@ -61,6 +61,11 @@ ul {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.choosy {
+  text-align: center;
+  color: red;
 }
 
 .grid3x3 {

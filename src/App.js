@@ -78,30 +78,23 @@ class App extends React.Component {
   };
 
   plusOne = () => {
-    console.log("invoked");
-    if (this.state.count < 9) {
       this.setState((prevState) => {
         return { count: prevState.count + 1 };
       });
-    }
     console.log(this.state.count);
   };
 
   plusTwo = () => {
-    if (this.state.count < 9) {
       this.setState((prevState) => {
         return { count: prevState.count + 2 };
       });
-    }
     console.log(this.state.count);
   };
 
   plusThree = () => {
-    if (this.state.count < 9) {
       this.setState((prevState) => {
         return { count: prevState.count + 3 };
       });
-    }
     console.log(this.state.count);
   };
 
@@ -111,7 +104,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className='content'>
+      <div className='main-content'>
         <Header />
         <Plants
           key={this.state.plants.id}
