@@ -75,28 +75,67 @@ class App extends React.Component {
       },
     ],
     count: 0,
+    firstRowDisabled: false,
+    secondRowDisabled: false,
+    thirdRowDisabled: false,
   };
 
   plusOne = () => {
-      this.setState((prevState) => {
+    this.setState((prevState) => {
         return { count: prevState.count + 1 };
+    });
+};
+
+  plusOneFirstRow = () => {
+      this.setState((prevState) => {
+          return { count: prevState.count + 1, firstRowDisabled: true };
+      });
+  };
+  plusOneSecondRow = () => {
+      this.setState((prevState) => {
+          return { count: prevState.count + 1, secondRowDisabled: true };
+      });
+  };
+  plusOneThirdRow = () => {
+      this.setState((prevState) => {
+          return { count: prevState.count + 1, thirdRowDisabled: true };
       });
   };
 
-  plusTwo = () => {
+  plusTwoFirstRow = () => {
       this.setState((prevState) => {
-        return { count: prevState.count + 2 };
+        return { count: prevState.count + 2, firstRowDisabled: true };
+      });
+  };
+  plusTwoSecondRow = () => {
+      this.setState((prevState) => {
+        return { count: prevState.count + 2, secondRowDisabled: true };
+      });
+  };
+  plusTwoThirdRow = () => {
+      this.setState((prevState) => {
+        return { count: prevState.count + 2, thirdRowDisabled: true };
       });
   };
 
-  plusThree = () => {
+  plusThreeFirstRow = () => {
       this.setState((prevState) => {
-        return { count: prevState.count + 3 };
+        return { count: prevState.count + 3, firstRowDisabled: true };
+      });
+  };
+  plusThreeSecondRow = () => {
+      this.setState((prevState) => {
+        return { count: prevState.count + 3, secondRowDisabled: true };
+      });
+  };
+  plusThreeThirdRow = () => {
+      this.setState((prevState) => {
+        return { count: prevState.count + 3, thirdRowDisabled: true };
       });
   };
 
   reset = () => {
-    this.setState({ count: 0 });
+    this.setState({ count: 0, firstRowDisabled: false, secondRowDisabled: false, thirdRowDisabled: false   });
   };
 
   render() {
@@ -112,10 +151,19 @@ class App extends React.Component {
         {this.state.count === 0 ? 
          <Start plusOne={this.plusOne} count={this.state.count} /> :
          <Menu
-          plusOne={this.plusOne}
-          plusTwo={this.plusTwo}
-          plusThree={this.plusThree}
+          plusOneFirstRow={this.plusOneFirstRow}
+          plusOneSecondRow={this.plusOneSecondRow}
+          plusOneThirdRow={this.plusOneThirdRow}
+          plusTwoFirstRow={this.plusTwoFirstRow}
+          plusTwoSecondRow={this.plusTwoSecondRow}
+          plusTwoThirdRow={this.plusTwoThirdRow}
+          plusThreeFirstRow={this.plusThreeFirstRow}
+          plusThreeSecondRow={this.plusThreeSecondRow}
+          plusThreeThirdRow={this.plusThreeThirdRow}
           reset={this.reset}
+          firstRowDisabled={this.state.firstRowDisabled}
+          secondRowDisabled={this.state.secondRowDisabled}
+          thirdRowDisabled={this.state.thirdRowDisabled}
         /> 
       }
       </div>
